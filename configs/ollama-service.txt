@@ -1,0 +1,25 @@
+# Ollama Service Configuration for Main System
+# Copy this to /etc/systemd/system/ollama.service on your main system
+
+[Unit]
+Description=Ollama Server
+After=network-online.target
+
+[Service]
+Type=exec
+ExecStart=/usr/local/bin/ollama serve
+Environment="OLLAMA_HOST=0.0.0.0:11434"
+Environment="OLLAMA_MODELS=/media/kubuntu/73cf9511-0af0-4ac4-9d83-ee21eb17ff5d/models"
+User=kubuntu
+Group=kubuntu
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
+
+# Installation commands for main system:
+# sudo cp ollama-service.txt /etc/systemd/system/ollama.service
+# sudo systemctl daemon-reload
+# sudo systemctl enable --now ollama
+# sudo systemctl status ollama
