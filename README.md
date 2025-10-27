@@ -31,7 +31,19 @@ A collection of advanced ZFS installation scripts for Ubuntu with modern package
 - ✅ **ZFSBootMenu** - Native UEFI boot entries
 - ✅ **Error Resilient** - Handles existing installations gracefully
 
-### 3. `zfsinstall-enhanced.sh` - **Full-Featured Original**
+### 3. `zfsinstall-ai-enhanced.sh` - **AI-Powered** ⭐
+**AI-enhanced ZFS installer with intelligent hardware optimization**
+
+**Features:**
+- 🤖 **AI Hardware Detection** - AVX2/AVX512, detailed GPU detection
+- ⚡ **Smart Optimizations** - Hardware-aware ZFS tuning
+- 🧠 **ML/AI Stack** - CUDA, PyTorch, Miniforge with optimizations
+- 🚀 **Parallel Processing** - Concurrent downloads and installations
+- 🎯 **Performance Tuning** - CPU governor, I/O scheduler, memory optimization
+- 🐳 **Docker + GPU** - Container runtime with NVIDIA support
+- 📊 **Progress Tracking** - Real-time installation progress
+
+### 4. `zfsinstall-enhanced.sh` - **Full-Featured Original**
 **Comprehensive ZFS installer with all enterprise features**
 
 **Features:**
@@ -59,6 +71,18 @@ sudo ./zfs-install-complete.sh
 wget https://raw.githubusercontent.com/wlfogle/zfs-installer-enhanced/main/zfs-install-deps-fixed.sh
 chmod +x zfs-install-deps-fixed.sh
 RUN_ZFS=1 ./zfs-install-deps-fixed.sh
+```
+
+### AI-Enhanced Installation (RECOMMENDED for ML/AI workloads)
+
+```bash
+# AI-powered installer with hardware optimization
+wget https://raw.githubusercontent.com/wlfogle/zfs-installer-enhanced/main/zfsinstall-ai-enhanced.sh
+chmod +x zfsinstall-ai-enhanced.sh
+# For existing systems (adds AI/ML stack + optimizations)
+sudo ./zfsinstall-ai-enhanced.sh
+# For new ZFS installations
+RUN_ZFS=1 sudo ./zfsinstall-ai-enhanced.sh
 ```
 
 ## 🔧 Environment Variables for Automation
@@ -128,5 +152,59 @@ Choose from:
 - **ARC Tuning** - Memory-based ARC size optimization
 - **SSD Optimization** - Solid state drive optimizations
 - **Compression** - Transparent compression for better performance
+
+## 🤖 AI-Enhanced Features (NEW!)
+
+The `zfsinstall-ai-enhanced.sh` script includes cutting-edge AI-powered optimizations:
+
+### 🔍 **Advanced Hardware Detection**
+- **CPU Instructions** - AVX2, AVX512 detection for optimal software selection
+- **GPU Detection** - NVIDIA, Intel, AMD graphics with driver optimization
+- **Storage Analysis** - NVMe vs SSD detection for I/O scheduler tuning
+- **Memory Profiling** - RAM-based ARC and application tuning
+
+### ⚡ **Smart Performance Optimizations**
+- **ZFS Compression** - ZSTD for AVX2+ CPUs, LZ4 fallback
+- **I/O Schedulers** - `none` for NVMe, `mq-deadline` for SATA
+- **CPU Governors** - Performance mode for compute workloads
+- **Network Stack** - TCP buffer and queue optimizations
+
+### 🧠 **AI/ML Stack Integration**
+- **CUDA Toolkit** - Automatic installation for NVIDIA GPUs
+- **PyTorch** - CPU/GPU variants based on hardware
+- **Miniforge** - Optimized conda environment with libmamba
+- **Intel Extensions** - AVX2+ optimizations for Intel CPUs
+- **Docker + GPU** - NVIDIA container runtime support
+
+### 🚀 **Parallel Processing**
+- **Concurrent Downloads** - Multiple package downloads with retry logic
+- **Smart Package Management** - Individual fallback with progress tracking
+- **Error Recovery** - Automatic retry with exponential backoff
+
+## 📈 **Script Comparison**
+
+| Feature | Complete | Simple | AI-Enhanced ⭐ | Enhanced |
+|---------|----------|--------|----------------|----------|
+| Modern Package Mgmt | ✅ | ✅ | ✅ | ❌ |
+| Interactive GUI | ✅ | ❌ | ❌ | ✅ |
+| Hardware Detection | ✅ | ✅ | 🤖 **AI-Powered** | ❌ |
+| Desktop Choice | ✅ | ❌ | ❌ | ✅ |
+| Multi-disk RAID | ❌ | ❌ | ❌ | ✅ |
+| Existing Pool Support | ❌ | ✅ | ✅ | ❌ |
+| AI/ML Stack | ❌ | ❌ | ✅ | ❌ |
+| Performance Tuning | ❌ | ❌ | ✅ | ❌ |
+| Parallel Processing | ❌ | ❌ | ✅ | ❌ |
+| CUDA/GPU Support | ❌ | ❌ | ✅ | ❌ |
+| Docker Integration | ❌ | ❌ | ✅ | ❌ |
+| Progress Tracking | ❌ | ❌ | ✅ | ❌ |
+| Timeshift Integration | ❌ | ❌ | ❌ | ✅ |
+| Encryption Support | ✅ | ❌ | ❌ | ✅ |
+
+### 🎯 **Recommended Usage**
+
+- **AI/ML Workloads** → Use `zfsinstall-ai-enhanced.sh` ⭐
+- **New Installations** → Use `zfs-install-complete.sh`
+- **Existing ZFS Systems** → Use `zfs-install-deps-fixed.sh`
+- **Enterprise/Advanced** → Use `zfsinstall-enhanced.sh`
 
 **⚠️ Important:** These scripts will modify disk partitions and install a complete operating system. Always backup your data before running on production systems!
